@@ -70,7 +70,7 @@ function BookList() {
                 
                     {state.books.length > 0 ? <Row attributes="divider-row"> {state.books.map(book => {
                         return <BookListItem book={book} /> }
-                    )} </Row> : <p className="text-center">You haven't saved any books yet!</p>}
+                    )} </Row> : <p className="text-center title-text larger-text">You haven't saved any books yet!</p>}
 
                 
             </div>

@@ -15,6 +15,7 @@ const reducer = (state, action) => {
         case NEW_QUERY:
             const newState = {...state, searchResults: action.results} 
             return newState
+            
         case SET_CURRENT_BOOK:
             return {
                 ...state,
