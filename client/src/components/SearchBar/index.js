@@ -26,13 +26,13 @@ function SearchBar() {
 
         <div className="ml-2">
             <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" aria-describedby="emailHelp" 
+                <div className="form-group">
+                    <input type="text" className="form-control" aria-describedby="emailHelp" 
                         ref={searchQuery}
                         placeholder="Search by title here!"
                     />
                 </div>
-                <button type="button ml-2" class="btn btn-success" onClick={event => handleSearch(event)}>Search</button>
+                <button type="button ml-2" className="btn btn-success" onClick={event => handleSearch(event)}>Search</button>
             </form>
         </div>
     )

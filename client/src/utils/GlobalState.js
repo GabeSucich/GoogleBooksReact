@@ -1,5 +1,5 @@
 import React, {createContext, useReducer, useContext} from "react"
-import {UPDATE_BOOKS, SET_CURRENT_BOOK, NEW_QUERY, CLEAR_SEARCHES, ADD_BOOK} from "./action"
+import {UPDATE_BOOKS, SET_CURRENT_BOOK, NEW_QUERY, CLEAR_SEARCHES, ADD_BOOK, REMOVE_BOOK} from "./action"
 
 const BookContext = createContext()
 const {Provider} = BookContext
@@ -26,6 +26,20 @@ const reducer = (state, action) => {
         return {
             ...state,
             searchResults: null
+        }
+
+        case REMOVE_BOOK: 
+
+        const books = []
+        for (const book of state.books) {
+            if (book !== action.book) {
+                books.push(book)
+            }
+        }
+
+        return {
+            ...state,
+            books: books
         }
 
         case ADD_BOOK:
