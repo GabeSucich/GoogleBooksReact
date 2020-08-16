@@ -5,21 +5,24 @@ import Search from "./pages/Search"
 import API from "./utils/API"
 import NoMatch from "./pages/NoMatch";
 import { BookProvider } from "./utils/GlobalState"
+import Navbar from "./components/Navbar"
 
 function App() {
 
   return (
-    <div className="container">
-      <BookProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Search} />
-            <Route exact path="/search" component={Search} />
-            <Route exact path="/saved" component={Saved} />
-            <Route component={NoMatch} />
-          </Switch>
-        </Router>
-      </BookProvider>
+    <div>
+      <Router>
+        <BookProvider>
+          <Navbar />
+          <div className="container">
+            <Switch>
+              <Route exact path={["/", "/search"]} component={Search} />
+              <Route exact path="/saved" component={Saved} />
+              <Route component={NoMatch} />
+            </Switch>
+          </div>
+        </BookProvider>
+      </Router>
     </div>
   );
 }
