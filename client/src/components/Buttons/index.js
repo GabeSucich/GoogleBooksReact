@@ -1,10 +1,10 @@
 import React from 'react'
 import "./style.css"
 import API from "../../utils/API"
-import {ADD_BOOK, SET_CURRENT_BOOK, UPDATE_BOOKS, REMOVE_BOOK} from "../../utils/action"
+import { ADD_BOOK, SET_CURRENT_BOOK, UPDATE_BOOKS, REMOVE_BOOK } from "../../utils/action"
 import Row from "../Row"
 import Col from "../Col"
-import {useBookContext} from "../../utils/GlobalState"
+import { useBookContext } from "../../utils/GlobalState"
 import { PromiseProvider } from 'mongoose'
 
 export function ViewButton(props) {
@@ -13,7 +13,7 @@ export function ViewButton(props) {
 
     const handleViewClick = book => {
 
-        dispatch({type: SET_CURRENT_BOOK, book: book})
+        dispatch({ type: SET_CURRENT_BOOK, book: book })
     }
 
     return (
@@ -28,8 +28,8 @@ export function SaveButton(props) {
 
     const handleSaveClick = book => {
 
-        API.saveBook({title: book.title, authors: book.authors, description: book.description, src: book.imageLinks.smallThumbnail}).then(response => {
-            dispatch({type: ADD_BOOK, book: book})
+        API.saveBook({ title: book.title, authors: book.authors, description: book.description, src: book.imageLinks.smallThumbnail }).then(response => {
+            dispatch({ type: ADD_BOOK, book: book })
         })
     }
 
@@ -45,7 +45,7 @@ export function DeleteButton(props) {
 
     const handleDeleteClick = book => {
         API.deleteBook(book._id).then(data => {
-            dispatch({type: REMOVE_BOOK, book: book})
+            dispatch({ type: REMOVE_BOOK, book: book })
         })
     }
 
@@ -62,11 +62,17 @@ export function SavedButtons(props) {
 
     return (
         <Row>
-            <Col columns="col-sm-3 offset-sm-3">
-                <ViewButton book={props.book}/>
+            <Col columns="col-sm-2 offset-sm-2">
+                <div className="justify-content-center">
+                    <ViewButton book={props.book} />
+                </div>
+
             </Col>
-            <Col columns="col-sm-3">
-                <DeleteButton book={props.book}/>
+            <Col columns="col-sm-2 offset-sm-2">
+                <div className="justify-content-center">
+                    <DeleteButton book={props.book} />
+                </div>
+
             </Col>
         </Row>
     )
@@ -76,16 +82,16 @@ export function SavedButtons(props) {
 export function SearchButtons(props) {
 
     const [state, dispatch] = useBookContext()
-        
-    
+
+
     return (
         <Row>
-            <Col columns="col-sm-3 offset-sm-3">
-                <ViewButton book={props.book}/>
-                
+            <Col columns="col-sm-2 offset-sm-2">
+                <ViewButton book={props.book} />
+
             </Col>
-            <Col columns="col-sm-3">
-                <SaveButton book={props.book}/>
+            <Col columns="col-sm-2 offset-sm-2">
+                <SaveButton book={props.book} />
             </Col>
         </Row>
     )
