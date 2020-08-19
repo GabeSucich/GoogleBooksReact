@@ -41,10 +41,11 @@ function BookListItem({ book }) {
                             <p className="text-center">{book.authors.join(",  ")}</p>
                             {window.location.pathname === "/saved" ? <SavedButtons book={book} /> : <SearchButtons book={book} />}
                         </Col>
+                        {book.imageLinks.smallThumbnail &&
                         <Col columns="col-sm-4 col-md-4 col-lg-4 book-item">
                             <img className="list-img" src={book.imageLinks.smallThumbnail} />
 
-                        </Col>
+                        </Col>}
                     </Row>
                 </Col>
             )
