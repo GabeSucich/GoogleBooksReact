@@ -20,10 +20,10 @@ function Navbar() {
             <a className="navbar-brand title-text" href="#">Google Books with React</a>
                 <ul className="navbar-nav">
                     <li className="nav-item active">
-                        <a href="/search" className="nav-link font-weight-bold title-text" onClick={clearSearches} href="#">Search for Books</a>
+                        <a href="/search" className="nav-link font-weight-bold title-text" onClick={clearSearches}>Search for Books</a>
                     </li>
                     <li className="nav-item active">
-                        <a href="/saved" className="nav-link font-weight-bold title-text" onClick={clearSearches} href="#">Saved Books</a>
+                        <a href="/saved" className="nav-link font-weight-bold title-text" onClick={clearSearches}>Saved Books</a>
                     </li>
                 </ul>
         </nav>

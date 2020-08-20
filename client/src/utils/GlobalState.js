@@ -26,7 +26,8 @@ const reducer = (state, action) => {
 
         return {
             ...state,
-            searchResults: null
+            searchResults: null,
+            currentBook: null
         }
 
         case REMOVE_BOOK: 
